@@ -10,7 +10,7 @@ OBJ_DIR = _obj
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 INC_DIRS := Includes $(LIBFT)
-SRC_DIRS := src
+SRC_DIRS := src src/parser src/list src/algo
 HEADERS = -I $(LIBFT_DIR)/include -I
 
 vpath %.h $(INC_DIRS)
@@ -20,9 +20,17 @@ vpath %.c $(SRC_DIRS)
 ###############                  SOURCE FILES                     ##############
 ################################################################################
 
-SRCS = main.c
+PARSING_FILES := parser.c
+PARSING := $(addprefix parser/, $(PARSING_FILES))
 
-SRC := $(addprefix src/, $(SRCS))
+LIST_FILES := list.c
+LIST := $(addprefix list/, $(LIST_FILES))
+
+ALGO_FILES := algo.c
+ALGO := $(addprefix algo/, $(ALGO_FILES))
+
+SRC_FILES := main.c
+SRC := $(addprefix src/, $(SRC_FILES) $(PARSING) $(LIST) $(ALGO))
 
 ################################################################################
 ###############               OBJECT FILES & RULES                ##############
@@ -38,7 +46,7 @@ LDFLAGS_SAN := $(LDFLAGS) -fsanitize=address
 
 all: $(NAME)
 
-$(NAME): $(LIBFT)  $(OBJS)
+$(NAME): $(LIBFT) $(OBJS)
 	@echo "\033[0;32mLinking $(NAME)...\033[0m"
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBS) $(LDFLAGS)
 	@echo "\033[0;32mSuccessful Compilation of $(NAME)\033[0m"
