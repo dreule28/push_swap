@@ -1,0 +1,5 @@
+push_swap
+_obj
+libft/*.o
+*.pdf
+.vscode
