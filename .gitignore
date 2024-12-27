@@ -3,3 +3,4 @@ _obj
 libft/*.o
 *.pdf
 .vscode
+libft/libft.a
