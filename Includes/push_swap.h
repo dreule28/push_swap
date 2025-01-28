@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 19:37:23 by dreule            #+#    #+#             */
-/*   Updated: 2024/12/27 21:32:02 by dreule           ###   ########.fr       */
+/*   Updated: 2025/01/28 10:31:19 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,12 @@
 # define PUSH_SWAP_H
 
 //Includes -- BEGIN
-# include "libft.h"
-// # include "parser.h"
-// # include "list.h"
+#include <stdbool.h>
+#include "libft.h"
 // # include "algo.h"
+#include "list.h"
+// # include "parser.h"
 //Includes -- END
-
-//Structs -- BEGIN
-
-/*
-	Struct for Nodes --> will be expanded
-*/
-typedef struct s_node
-{
-	int				value;
-	struct s_node	*next;
-	struct s_node	*prev;
-}					t_node;
-
-/*
-	Struct that holds pointer to begin & end of list + size
-	Metaphor : vassel for a - l on keyboard including them
-*/
-typedef struct s_list
-{
-	t_node	*head;
-	t_node	*tail;
-	size_t	size;
-}					t_list;
-
-//Structs -- END
-
 
 
 //Functions -- BEGIN
