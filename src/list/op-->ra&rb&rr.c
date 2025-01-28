@@ -1,53 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ops_2.c                                            :+:      :+:    :+:   */
+/*   op-->ra&rb&rr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:07:25 by dreule            #+#    #+#             */
-/*   Updated: 2025/01/24 20:30:42 by dreule           ###   ########.fr       */
+/*   Updated: 2025/01/28 09:53:40 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_list *stack_a)
+void	rotate(t_list *stack)
 {
 	t_node	*first;
 	t_node	*last;
 
-	if (stack_a->head == NULL || stack_a->tail == NULL)
+	if (stack->head == NULL || stack->tail == NULL)
 		return ;
-	first = stack_a->head;
-	last = stack_a->tail;
-	stack_a->head = first->next;
-	stack_a->head->prev = NULL;
+	first = stack->head;
+	last = stack->tail;
+	stack->head = first->next;
+	stack->head->prev = NULL;
 	first->next = NULL;
 	first->prev = last;
 	last->next = first;
-	stack_a->tail = first;
+	stack->tail = first;
 }
 
+void	ra(t_list *stack_a)
+{
+	rotate(stack_a);
+	write(1, "ra\n", 3);
+}
 void	rb(t_list *stack_b)
 {
-	t_node	*first;
-	t_node	*last;
-
-	if (stack_b->head == NULL || stack_b->tail == NULL)
-		return ;
-	first = stack_b->head;
-	last = stack_b->tail;
-	stack_b->head = first->next;
-	stack_b->head->prev = NULL;
-	first->next = NULL;
-	first->prev = last;
-	last->next = first;
-	stack_b->tail = first;
+	rotate(stack_b);
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_list *stack_a, t_list *stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	rotate(stack_a);
+	rotate(stack_b);
+	write(1,"rr\n", 3);
 }
