@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:25:46 by dreule            #+#    #+#             */
-/*   Updated: 2025/01/28 11:19:21 by dreule           ###   ########.fr       */
+/*   Updated: 2025/01/28 14:24:20 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <limits.h>
 
 /* The s_list structure represents a node in a singly linked list. */
 // typedef struct s_list
@@ -91,6 +92,9 @@ int		ft_atoi(const char *str);
 
 /* Converts a string to a floating-point number. */
 double	ft_atof(const char *str);
+
+/* Converts a string to a long type*/
+long	ft_atol(char *str);
 
 /* Allocates memory for an array and initializes it to zero. */
 void	*ft_calloc(size_t count, size_t size);
