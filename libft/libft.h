@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:25:46 by dreule            #+#    #+#             */
-/*   Updated: 2024/12/16 10:06:56 by dreule           ###   ########.fr       */
+/*   Updated: 2025/01/28 11:19:21 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include <stdarg.h>
 
 /* The s_list structure represents a node in a singly linked list. */
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+// typedef struct s_list
+// {
+// 	void			*content;
+// 	struct s_list	*next;
+// }					t_list;
 
 /* Checks if the given character is alphabetic (A-Z or a-z). */
 int		ft_isalpha(int c);
@@ -132,30 +132,30 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 /* Creates a new list node with the given content. */
-t_list	*ft_lstnew(void *content);
+// t_list	*ft_lstnew(void *content);
 
-/* Adds a new node at the beginning of the list. */
-void	ft_lstadd_front(t_list **lst, t_list *new);
+// /* Adds a new node at the beginning of the list. */
+// void	ft_lstadd_front(t_list **lst, t_list *new);
 
-/* Returns the number of nodes in the list. */
-int		ft_lstsize(t_list *lst);
+// /* Returns the number of nodes in the list. */
+// int		ft_lstsize(t_list *lst);
 
-/* Returns the last node of the list. */
-t_list	*ft_lstlast(t_list *lst);
+// /* Returns the last node of the list. */
+// t_list	*ft_lstlast(t_list *lst);
 
-/* Adds a new node at the end of the list. */
-void	ft_lstadd_back(t_list **lst, t_list *new);
+// /* Adds a new node at the end of the list. */
+// void	ft_lstadd_back(t_list **lst, t_list *new);
 
-/* Frees the memory of a node's content using del, and the node itself. */
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
+// /* Frees the memory of a node's content using del, and the node itself. */
+// void	ft_lstdelone(t_list *lst, void (*del)(void*));
 
-/* Frees all nodes of the list and sets the pointer to NULL. */
-void	ft_lstclear(t_list **lst, void (*del)(void*));
+// /* Frees all nodes of the list and sets the pointer to NULL. */
+// void	ft_lstclear(t_list **lst, void (*del)(void*));
 
-/* Applies the function f to each node in the list. */
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+// /* Applies the function f to each node in the list. */
+// void	ft_lstiter(t_list *lst, void (*f)(void *));
 
-/* Creates a new list by applying f to each node, using del if needed. */
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+// /* Creates a new list by applying f to each node, using del if needed. */
+// t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
