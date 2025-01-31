@@ -6,25 +6,18 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:04:47 by dreule            #+#    #+#             */
-/*   Updated: 2025/01/31 11:04:54 by dreule           ###   ########.fr       */
+/*   Updated: 2025/01/31 14:48:24 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
 
-//Includes -- BEGIN
 # include "libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
-//Includes -- END
 
-//Structs -- BEGIN
-
-/*
-	Struct for Nodes --> will be expanded
-*/
 typedef struct s_node
 {
 	int				value;
@@ -32,10 +25,6 @@ typedef struct s_node
 	struct s_node	*prev;
 }					t_node;
 
-/*
-	Struct that holds pointer to begin & end of list + size
-	Metaphor : vassel for a - l on keyboard including them
-*/
 typedef struct s_list
 {
 	t_node	*head;
@@ -43,9 +32,6 @@ typedef struct s_list
 	size_t	size;
 }					t_list;
 
-//Structs -- END
-
-//Prototypes -- Start
 void	swap(t_list *stack);
 void	sa(t_list *stack_a);
 void	sb(t_list *stack_b);
@@ -60,7 +46,5 @@ void	rev_rotate(t_list *stack);
 void	rra(t_list *stack_a);
 void	rrb(t_list *stack_b);
 void	rrr(t_list *stack_a, t_list *stack_b);
-
-//Prototypes -- End
 
 #endif
