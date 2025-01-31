@@ -1,6 +1,9 @@
 push_swap
 _obj
 libft/*.o
+libft/libft.a
+libft/ft_printf/*.o
+libft/get_next_line/*.o
 *.pdf
 .vscode
 libft/libft.a
