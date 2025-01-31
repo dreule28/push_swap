@@ -7,3 +7,4 @@ libft/get_next_line/*.o
 *.pdf
 .vscode
 libft/libft.a
+test.c
