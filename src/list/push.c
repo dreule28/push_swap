@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:31:35 by dreule            #+#    #+#             */
-/*   Updated: 2025/01/31 18:02:04 by dreule           ###   ########.fr       */
+/*   Updated: 2025/01/31 18:17:09 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ void	pb(t_list *stack_a, t_list *stack_b)
 	stack_b->head = temp;
 	stack_a->size--;
 	stack_b->size++;
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }
