@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:46:03 by dreule            #+#    #+#             */
-/*   Updated: 2025/01/31 16:24:41 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/03 09:39:34 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	swap(t_list *stack)
 	second->next = first;
 	first->prev = second;
 	stack->head = second;
+	if (first->next == NULL)
+		stack->tail = first;
 }
 
 void	sa(t_list *stack_a)
