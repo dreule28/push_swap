@@ -9,7 +9,7 @@ RM = rm -rf
 OBJ_DIR = _obj
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
-INC_DIRS := Includes $(LIBFT)
+INC_DIRS := Includes $(LIBFT_DIR)
 SRC_DIRS := src src/parser src/list src/algo
 HEADERS = -I $(LIBFT_DIR)/include -I
 
@@ -20,10 +20,10 @@ vpath %.c $(SRC_DIRS)
 ###############                  SOURCE FILES                     ##############
 ################################################################################
 
-PARSING_FILES := parser.c
+PARSING_FILES := parser.c frees.c utils.c fill_stack.c
 PARSING := $(addprefix parser/, $(PARSING_FILES))
 
-LIST_FILES := list.c
+LIST_FILES := list.c push.c rev_rotate.c rotate.c swap.c init_stacks.c
 LIST := $(addprefix list/, $(LIST_FILES))
 
 ALGO_FILES := algo.c
