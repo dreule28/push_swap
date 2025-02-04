@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 10:37:16 by dreule            #+#    #+#             */
-/*   Updated: 2024/10/25 20:20:29 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/04 11:32:33 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,8 @@ static char	*handle_zero(unsigned int n, char *str)
 	return (str);
 }
 
-static unsigned int	handle_neg(unsigned int n, char *str)
+static unsigned int	handle_neg(unsigned int n)
 {
-	if (n < 0)
-	{
-		str[0] = '-';
-		return (-n);
-	}
 	return (n);
 }
 
@@ -61,7 +56,7 @@ char	*unint_itoa(unsigned int n)
 	str[len] = '\0';
 	if (n == 0)
 		return (handle_zero(n, str));
-	num = handle_neg(n, str);
+	num = handle_neg(n);
 	i = len - 1;
 	while (num > 0)
 	{
