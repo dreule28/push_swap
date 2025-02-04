@@ -6,11 +6,12 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:39:26 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/04 10:20:01 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/04 14:28:45 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
+#include <stdio.h>
 
 int	*check_dupes(char *args, t_list *stack_a)
 {
@@ -21,12 +22,12 @@ int	*check_dupes(char *args, t_list *stack_a)
 	len = 0;
 	nbs = ft_split(args, ' ');
 	if (!nbs)
-		return ((int *)NULL);
+		return ((int *) NULL);
 	while (nbs[len])
 		len++;
 	ints = malloc(sizeof(int) * len);
 	if (!ints)
-		return ((int *)NULL);
+		return ((int *) NULL);
 	len = 0;
 	while (nbs[len])
 	{
@@ -38,6 +39,7 @@ int	*check_dupes(char *args, t_list *stack_a)
 	if (is_dup(ints, len))
 		free_ints(args, ints);
 	stack_a->size = len;
+	printf("Size of node: %ld\n", stack_a->size);
 	return (ints);
 }
 
@@ -69,10 +71,11 @@ bool	is_valid(char *str)
 		i++;
 	if (!str[i])
 		return (false);
-	while (str[i++])
+	while (str[i])
 	{
-		if (!(str[i] >= 0 && str[i] <= 9))
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (false);
+		i++;
 	}
 	if (nb > INT_MAX || nb < INT_MIN)
 		return (false);
@@ -124,5 +127,7 @@ void	pars_args(char **argv, t_list *stack_a)
 	real_ints = check_dupes(joined_args, stack_a);
 	if (!real_ints)
 		free_joined_args(joined_args);
-	
+	fill_stack(stack_a, real_ints);
+	free(joined_args);
+	free(real_ints);
 }
