@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:57:39 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/04 10:24:34 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/04 14:11:37 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	free_2d(char **array)
 	free(array);
 }
 
-void	free_all(char *joined, char **ints)
+void	free_all(char *str, char **array)
 {
-	free(joined);
-	free_2d(ints);
+	free(str);
+	free_2d(array);
 	error("Error\n");
 }
 
@@ -45,16 +45,15 @@ void	free_ints(char *str, int *ints)
 void	free_stack(t_list *stack)
 {
 	t_node	*curr;
+	t_node	*next;
 
 	curr = stack->head;
-	while(curr->next)
+	while (curr)
 	{
-		curr = curr->next;
-		free(curr->prev);
+		next = curr->next;
+		free(curr);
+		curr = next;
 	}
-	free(curr);
 	stack->head = NULL;
 	stack->tail = NULL;
-	stack->size = 0;
-	error("Error\n");
 }
