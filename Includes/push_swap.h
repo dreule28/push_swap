@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 19:37:23 by dreule            #+#    #+#             */
-/*   Updated: 2025/01/31 11:06:16 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/03 16:01:07 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "libft.h"
 // # include "algo.h"
 # include "list.h"
-// # include "parser.h"
+# include "parser.h"
 //Includes -- END
 
 //Functions -- BEGIN

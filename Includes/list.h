@@ -6,17 +6,19 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:04:47 by dreule            #+#    #+#             */
-/*   Updated: 2025/01/31 14:48:24 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/04 11:59:20 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
 
+//Includes -- Begin
 # include "libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+//Includes -- End
 
 typedef struct s_node
 {
@@ -32,6 +34,7 @@ typedef struct s_list
 	size_t	size;
 }					t_list;
 
+//FUNCTIONS -- BEGIN
 void	swap(t_list *stack);
 void	sa(t_list *stack_a);
 void	sb(t_list *stack_b);
@@ -46,5 +49,7 @@ void	rev_rotate(t_list *stack);
 void	rra(t_list *stack_a);
 void	rrb(t_list *stack_b);
 void	rrr(t_list *stack_a, t_list *stack_b);
+void	init_stacks(t_list *stack_a, t_list *stack_b);
+//FUNCTIONS -- END
 
 #endif
