@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:07:25 by dreule            #+#    #+#             */
-/*   Updated: 2025/01/31 15:56:03 by dreule           ###   ########.fr       */
+/*   Updated: 2025/01/31 18:28:57 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ra(t_list *stack_a)
 	rotate(stack_a);
 	write(1, "ra\n", 3);
 }
+
 void	rb(t_list *stack_b)
 {
 	rotate(stack_b);
