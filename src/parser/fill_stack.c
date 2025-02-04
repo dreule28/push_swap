@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:25:24 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/04 14:32:15 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/04 14:44:44 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_node	*add_node(int *value)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		return ((t_node *) (NULL));
+		return ((t_node *)(NULL));
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	new_node->value = (*value);
