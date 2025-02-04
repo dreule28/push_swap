@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:25:24 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/04 14:44:44 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/04 15:56:10 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	fill_stack(t_list *stack_a, int *real_ints)
 		if (!new_node)
 			free_stack(stack_a);
 		add_end(stack_a, new_node);
+		free(new_node);
 		i++;
 	}
-	free(new_node);
 }
