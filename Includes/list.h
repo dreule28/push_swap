@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:04:47 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/04 11:59:20 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/05 09:45:16 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	rev_rotate(t_list *stack);
 void	rra(t_list *stack_a);
 void	rrb(t_list *stack_b);
 void	rrr(t_list *stack_a, t_list *stack_b);
-void	init_stacks(t_list *stack_a, t_list *stack_b);
 //FUNCTIONS -- END
 
 #endif
