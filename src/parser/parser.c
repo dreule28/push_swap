@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:39:26 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/04 17:17:25 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/06 15:40:40 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	*check_dupes(char *args, t_list *stack_a)
 	if (is_dup(ints, len))
 		free_ints(args, ints);
 	stack_a->size = len;
+	// printf("size: %lu\n\n",stack_a->size);
 	return (ints);
 }
 
@@ -127,6 +128,7 @@ void	pars_args(char **argv, t_list *stack_a)
 	if (!real_ints)
 		free_joined_args(joined_args);
 	fill_stack(stack_a, real_ints);
+	get_index(stack_a);
 	free(joined_args);
 	free(real_ints);
 }
