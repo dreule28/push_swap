@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:45:11 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/06 16:52:59 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/06 16:59:19 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,27 @@ void	get_index(t_list *stack_a)
 	}
 }
 
+void	get_pos(t_list *stack_a, t_list *stack_b)
+{
+	int	pos;
+	t_node	*head_a;
+	t_node	*head_b;
+
+	head_a = stack_a->head;
+	head_b = stack_b->head;
+	while (head_a)
+	{
+		head_a->pos = pos++;
+		head_a = head_a->next;
+	}
+	pos = 0;
+	while (head_b)
+	{
+		head_b->pos = pos++;
+		head_b = head_b->next;
+	}
+}
+
 void	sort_vals(t_list *stack_a, t_list *stack_b)
 {
 	(void)stack_b;
@@ -66,6 +87,6 @@ void	sort_vals(t_list *stack_a, t_list *stack_b)
 	printf("Post-Swap(3)\nValue1: %d\nValue2: %d\nValue2: %d\n\n", stack_a->head->value, stack_a->head->next->value, stack_a->tail->value);
 	printf("Post-Sort\nIndex1: %d\nIndex2: %d\nIndex3: %d\n\n", stack_a->head->index, stack_a->head->next->index, stack_a->tail->index);
 	printf("Post-Sort\npos1: %d\npos2: %d\npos3: %d\n\n", stack_a->head->pos, stack_a->head->next->pos, stack_a->tail->pos);
-	// if (stack_a->size > 3 && !is_sorted(stack_a))
-	// 	sort_all(stack_a);
+	if (stack_a->size > 3 && !is_sorted(stack_a))
+		sort_all(stack_a, stack_b);
 }
