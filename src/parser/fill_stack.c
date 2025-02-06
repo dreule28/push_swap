@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:25:24 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/05 13:54:54 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/06 15:42:12 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ t_node	*add_node(int *value)
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	new_node->value = (*value);
-	printf("Value: %d\n", new_node->value);
-	printf("Adress :%p\n\n", new_node);
+	new_node->index = 0;
+	// printf("Value: %d\n", new_node->value);
+	// printf("Adress :%p\n\n", new_node);
 	return (new_node);
 }
 
