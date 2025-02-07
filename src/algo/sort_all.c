@@ -6,31 +6,29 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 22:26:53 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/07 22:31:37 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/07 22:36:03 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
 
-void	get_pos(t_list *stack_a, t_list *stack_b)
+void	get_index(t_list *stack_a)
 {
-	int		pos;
-	t_node	*head_a;
-	t_node	*head_b;
+	t_node	*curr;
+	t_node	*compare;
 
-	pos = 1;
-	head_a = stack_a->head;
-	head_b = stack_b->head;
-	while (head_a)
+	curr = stack_a->head;
+	while (curr)
 	{
-		head_a->pos = pos++;
-		head_a = head_a->next;
-	}
-	pos = 1;
-	while (head_b)
-	{
-		head_b->pos = pos++;
-		head_b = head_b->next;
+		curr->index = 1;
+		compare = stack_a->head;
+		while (compare)
+		{
+			if (compare->value < curr->value)
+				curr->index++;
+			compare = compare->next;
+		}
+		curr = curr->next;
 	}
 }
 
@@ -62,23 +60,54 @@ void	split_to_three(t_list *stack_a, t_list *stack_b)
 	pushed++;
 }
 
-void	get_index(t_list *stack_a)
+void	get_pos(t_list *stack_a, t_list *stack_b)
 {
-	t_node	*curr;
-	t_node	*compare;
+	int		pos;
+	t_node	*head_a;
+	t_node	*head_b;
 
-	curr = stack_a->head;
-	while (curr)
+	pos = 1;
+	head_a = stack_a->head;
+	head_b = stack_b->head;
+	while (head_a)
 	{
-		curr->index = 1;
-		compare = stack_a->head;
-		while (compare)
+		head_a->pos = pos++;
+		head_a = head_a->next;
+	}
+	pos = 1;
+	while (head_b)
+	{
+		head_b->pos = pos++;
+		head_b = head_b->next;
+	}
+}
+
+void	find_targets(t_list *stack_a, t_list *stack_b)
+{
+	int		smallest_bigger;
+	t_node	*smallest_index;
+	t_node	*head_a;
+	t_node	*head_b;
+
+	smallest_index = get_smallest_index(stack_a);
+	head_a = stack_a->head;
+	head_b = stack_b->head;
+	while (head_b)
+	{
+		head_b->target_node = NULL;
+		smallest_bigger = INT_MAX;
+		while (head_a)
 		{
-			if (compare->value < curr->value)
-				curr->index++;
-			compare = compare->next;
+			if (head_a->index > head_b->index && head_a->index < smallest_index)
+			{
+				smallest_bigger = head_a->index;
+				head_b->target_node = head_a;
+			}
+			head_a = head_a->next;
 		}
-		curr = curr->next;
+		if (!head_b->target_node)
+			head_b->target_node = smallest_index;
+		head_b = head_b->next;
 	}
 }
 
