@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:04:47 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/07 16:24:35 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/07 20:09:21 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_node
 	int				cost;
 	struct s_node	*next;
 	struct s_node	*prev;
+	struct s_node	*target_node;
 }					t_node;
 
 typedef struct s_list
