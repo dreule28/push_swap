@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:04:47 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/05 09:45:16 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/07 16:24:35 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 typedef struct s_node
 {
 	int				value;
+	int				index;
+	int				pos;
+	int				cost;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
@@ -31,7 +34,8 @@ typedef struct s_list
 {
 	t_node	*head;
 	t_node	*tail;
-	size_t	size;
+	int		size;
+	int		curr_size;
 }					t_list;
 
 //FUNCTIONS -- BEGIN
