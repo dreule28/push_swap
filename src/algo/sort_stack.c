@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:52:00 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/06 16:52:49 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/07 12:48:57 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,36 @@ void	sort_three_nodes(t_list *stack_a)
 		sa(stack_a);
 }
 
-void	sort_all(t_list *stack_a)
+void	split_to_three(t_list *stack_a, t_list *stack_b)
+{
+	int	pushed;
+	int	iter;
+
+	pushed = 0;
+	iter = 0;
+	if (stack_a->size > 6)
+	{
+		while (iter < stack_a->size && pushed < stack_a->size / 2)
+		{
+			if (stack_a->head->index <= stack_a->size / 2)
+			{
+				pb(stack_a, stack_b);
+				pushed++;
+			}
+			else
+			{
+				ra(stack_a);
+				iter++;
+			}
+		}
+	}
+	while (stack_a->size - pushed > 3)
+		pb(stack_a, stack_b);
+	pushed++;
+}
+
+void	sort_all(t_list *stack_a, t_list *stack_b)
 {
 	get_index(stack_a);
+	get_pos(stack_a, stack_b);
 }
