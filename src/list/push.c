@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:31:35 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/03 09:27:32 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/08 22:58:49 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	pa(t_list *stack_a, t_list *stack_b)
 	else
 		stack_a->tail = temp;
 	stack_a->head = temp;
-	stack_a->size++;
-	stack_b->size--;
+	stack_a->curr_size++;
+	stack_b->curr_size--;
 	write(1, "pa\n", 3);
 }
 
@@ -53,7 +53,7 @@ void	pb(t_list *stack_a, t_list *stack_b)
 	else
 		stack_b->tail = temp;
 	stack_b->head = temp;
-	stack_a->size--;
-	stack_b->size++;
+	stack_a->curr_size;
+	stack_b->curr_size++;
 	write(1, "pb\n", 3);
 }
