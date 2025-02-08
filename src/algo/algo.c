@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:45:11 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/07 22:38:10 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/08 20:23:35 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_node	*get_smallest_index(t_list *stack_a)
 		if (smallest_index > head->index)
 		{
 			smallest_index = head->index;
-			smallest_index = head;
+			smallest_index_node = head;
 		}
 		head = head->next;
 	}
