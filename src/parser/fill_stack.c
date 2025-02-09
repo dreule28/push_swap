@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:25:24 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/06 15:42:12 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/09 02:12:31 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	add_end(t_list *stack, t_node *new_node)
 void	fill_stack(t_list *stack_a, int *real_ints)
 {
 	t_node		*new_node;
-	size_t		i;
+	int			i;
 
 	i = 0;
 	while (i < stack_a->size)
