@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 22:26:53 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/07 22:36:03 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/09 03:10:02 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,27 @@
 
 void	get_index(t_list *stack_a)
 {
-	t_node	*curr;
-	t_node	*compare;
+	t_node	*top;
+	t_node	*max_node;
+	int		size;
 
-	curr = stack_a->head;
-	while (curr)
+	size = stack_a->size;
+	while (size--)
 	{
-		curr->index = 1;
-		compare = stack_a->head;
-		while (compare)
+		top = stack_a->head;
+		max_node = top;
+		while (top)
 		{
-			if (compare->value < curr->value)
-				curr->index++;
-			compare = compare->next;
+			if (top->next)
+			{
+				if (max_node->index > 0)
+					max_node = top->next;
+				if (max_node->value < top->next->value && top->next->index == 0)
+					max_node = top->next;
+			}
+			top = top->next;
 		}
-		curr = curr->next;
+		max_node->index = size + 1;
 	}
 }
 
@@ -49,15 +55,12 @@ void	split_to_three(t_list *stack_a, t_list *stack_b)
 				pushed++;
 			}
 			else
-			{
 				ra(stack_a);
-				iter++;
-			}
+			iter++;
 		}
 	}
-	while (stack_a->size - pushed > 3)
+	while (stack_a->size - pushed++ > 3)
 		pb(stack_a, stack_b);
-	pushed++;
 }
 
 void	get_pos(t_list *stack_a, t_list *stack_b)
@@ -66,7 +69,7 @@ void	get_pos(t_list *stack_a, t_list *stack_b)
 	t_node	*head_a;
 	t_node	*head_b;
 
-	pos = 1;
+	pos = 0;
 	head_a = stack_a->head;
 	head_b = stack_b->head;
 	while (head_a)
@@ -74,7 +77,7 @@ void	get_pos(t_list *stack_a, t_list *stack_b)
 		head_a->pos = pos++;
 		head_a = head_a->next;
 	}
-	pos = 1;
+	pos = 0;
 	while (head_b)
 	{
 		head_b->pos = pos++;
@@ -89,16 +92,16 @@ void	find_targets(t_list *stack_a, t_list *stack_b)
 	t_node	*head_a;
 	t_node	*head_b;
 
-	smallest_index = get_smallest_index(stack_a);
-	head_a = stack_a->head;
+	smallest_index = get_smallest_index(stack_a->head);
 	head_b = stack_b->head;
 	while (head_b)
 	{
+		head_a = stack_a->head;
 		head_b->target_node = NULL;
 		smallest_bigger = INT_MAX;
 		while (head_a)
 		{
-			if (head_a->index > head_b->index && head_a->index < smallest_index)
+			if (head_a->index > head_b->index && head_a->index < smallest_bigger)
 			{
 				smallest_bigger = head_a->index;
 				head_b->target_node = head_a;
@@ -117,12 +120,25 @@ void	sort_all(t_list *stack_a, t_list *stack_b)
 
 	stack_a->curr_size = stack_a->size;
 	stack_b->curr_size = stack_b->size;
-	get_index(stack_a);
+	// get_index(stack_a);
 	split_to_three(stack_a, stack_b);
 	sort_three_nodes(stack_a);
 	while (stack_b->head)
 	{
 		get_pos(stack_a, stack_b);
 		find_targets(stack_a, stack_b);
+		find_cheapest_move(stack_a, stack_b);
+		chose_ops(stack_a, stack_b);
+	}
+	if (!is_sorted(stack_a))
+	{
+		min_index = get_smallest_index(stack_a->head);
+		get_pos(stack_a, stack_b);
+		if (min_index->pos > stack_a->size / 2)
+			while (stack_a->size - min_index->pos++ > 0)
+				rra(stack_a);
+		else
+			while (min_index->pos--)
+				ra(stack_a);
 	}
 }
