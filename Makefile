@@ -81,4 +81,14 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+CHECKER = ./checker_Mac
+
+ARG = "956 187 188 896"
+
+test: all
+	ARG="956 187 188 896"; ./push_swap $$ARG | $(CHECKER) $$ARG
+
+test_rand: all
+	ARG_RAND=$$(jot -r 36 10000000 99999999) && ./push_swap $$ARG_RAND | ./checker_Mac $$ARG_RAND
+
+.PHONY: all clean fclean re test test_rand
