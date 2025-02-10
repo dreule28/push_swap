@@ -6,33 +6,30 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:45:11 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/08 20:23:35 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/10 12:19:57 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
 #include <stdio.h>
 
-void	post_sort(t_list *stack_a);
-void	pre_sort(t_list *stack_a);
-
-t_node	*get_smallest_index(t_list *stack_a)
+t_node	*get_smallest_index(t_node *head_a)
 {
 	int		smallest_index;
-	t_node	*head;
+	t_node	*top;
 	t_node	*smallest_index_node;
 
-	smallest_index = stack_a->head->index;
-	smallest_index_node = stack_a->head;
-	head = stack_a->head->next;
-	while (head)
+	smallest_index = head_a->index;
+	smallest_index_node = head_a;
+	top = head_a->next;
+	while (top)
 	{
-		if (smallest_index > head->index)
+		if (smallest_index > top->index)
 		{
-			smallest_index = head->index;
-			smallest_index_node = head;
+			smallest_index = top->index;
+			smallest_index_node = top;
 		}
-		head = head->next;
+		top = top->next;
 	}
 	return (smallest_index_node);
 }
@@ -83,77 +80,10 @@ void	sort_three_nodes(t_list *stack_a)
 
 void	sort_vals(t_list *stack_a, t_list *stack_b)
 {
-	(void)stack_b;
-	pre_sort(stack_a);
 	if (stack_a->size == 2 && !is_sorted(stack_a))
 		sa(stack_a);
 	if (stack_a->size == 3 && !is_sorted(stack_a))
 		sort_three_nodes(stack_a);
-	post_sort(stack_a);
 	if (stack_a->size > 3 && !is_sorted(stack_a))
 		sort_all(stack_a, stack_b);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void	post_sort(t_list *stack_a)
-{
-	t_node *current = stack_a->head;
-	int i = 1;
-
-	printf("Post-Sort\n\n");
-	while (current)
-	{
-		printf("Index%d: %d\n", i, current->index);
-		printf("Value%d: %d\n\n", i, current->value);
-		// printf("Pos  %d: %d\n\n", i, current->pos);
-		current = current->next;
-		i++;
-	}
-	printf("\n");
-}
-
-void	pre_sort(t_list *stack_a)
-{
-	t_node *current = stack_a->head;
-	int i = 1;
-
-	printf("Pre-Sort\n\n");
-	while (current)
-	{
-		printf("Index%d: %d\n", i, current->index);
-		printf("Value%d: %d\n\n", i, current->value);
-		// printf("Pos  %d: %d\n\n", i, current->pos);
-		current = current->next;
-		i++;
-	}
-	printf("\n");
 }
