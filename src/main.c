@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 19:32:02 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/05 13:30:21 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/10 12:30:31 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,3 @@ int	main(int argc, char **argv)
 	free_stack(&stack_a);
 	return (0);
 }
-/*
-	dorker valgrind --leak-check=full
-*/
