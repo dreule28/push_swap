@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:05:50 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/05 09:45:21 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/06 18:45:07 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 //Includes -- BEGIN
 # include "libft.h"
 # include "list.h"
+# include "algo.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdbool.h>
