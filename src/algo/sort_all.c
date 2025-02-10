@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 22:26:53 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/09 03:10:02 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/10 12:20:43 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	get_pos(t_list *stack_a, t_list *stack_b)
 
 void	find_targets(t_list *stack_a, t_list *stack_b)
 {
-	int		smallest_bigger;
+	int		smallest_biger;
 	t_node	*smallest_index;
 	t_node	*head_a;
 	t_node	*head_b;
@@ -98,12 +98,12 @@ void	find_targets(t_list *stack_a, t_list *stack_b)
 	{
 		head_a = stack_a->head;
 		head_b->target_node = NULL;
-		smallest_bigger = INT_MAX;
+		smallest_biger = INT_MAX;
 		while (head_a)
 		{
-			if (head_a->index > head_b->index && head_a->index < smallest_bigger)
+			if (head_a->index > head_b->index && head_a->index < smallest_biger)
 			{
-				smallest_bigger = head_a->index;
+				smallest_biger = head_a->index;
 				head_b->target_node = head_a;
 			}
 			head_a = head_a->next;
@@ -116,11 +116,10 @@ void	find_targets(t_list *stack_a, t_list *stack_b)
 
 void	sort_all(t_list *stack_a, t_list *stack_b)
 {
-	t_node *min_index;
+	t_node	*min_index;
 
 	stack_a->curr_size = stack_a->size;
 	stack_b->curr_size = stack_b->size;
-	// get_index(stack_a);
 	split_to_three(stack_a, stack_b);
 	sort_three_nodes(stack_a);
 	while (stack_b->head)
