@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:39:26 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/06 15:40:40 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/10 12:21:13 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	*check_dupes(char *args, t_list *stack_a)
 	if (is_dup(ints, len))
 		free_ints(args, ints);
 	stack_a->size = len;
-	// printf("size: %lu\n\n",stack_a->size);
 	return (ints);
 }
 
