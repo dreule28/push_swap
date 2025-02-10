@@ -23,10 +23,10 @@ vpath %.c $(SRC_DIRS)
 PARSING_FILES := parser.c frees.c utils.c fill_stack.c
 PARSING := $(addprefix parser/, $(PARSING_FILES))
 
-LIST_FILES := list.c push.c rev_rotate.c rotate.c swap.c init_stacks.c
+LIST_FILES := push.c rev_rotate.c rotate.c swap.c
 LIST := $(addprefix list/, $(LIST_FILES))
 
-ALGO_FILES := algo.c
+ALGO_FILES := algo.c sort_all.c get_costs.c algo_heart.c
 ALGO := $(addprefix algo/, $(ALGO_FILES))
 
 SRC_FILES := main.c
