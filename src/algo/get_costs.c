@@ -6,7 +6,7 @@
 /*   By: dreule <dreule@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 20:23:14 by dreule            #+#    #+#             */
-/*   Updated: 2025/02/08 22:20:06 by dreule           ###   ########.fr       */
+/*   Updated: 2025/02/09 01:50:41 by dreule           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void	find_cheapest_move(t_list *stack_a, t_list *stack_b)
 	assign_costs(stack_a, stack_b);
 	cheapest = stack_b->head->cost + stack_b->head->target_node->cost;
 	stack_b->best_move_node = stack_b->head;
-	head_b = stack_b->head;
+	head_b = stack_b->head->next;
 	while (head_b)
 	{
-		if (cheapest > head_b->cost + stack_b->head->target_node)
+		if (cheapest > head_b->cost + head_b->target_node->cost)
 		{
-			cheapest = head_b->cost + stack_b->head->target_node;
+			cheapest = head_b->cost + head_b->target_node->cost;
 			stack_b->best_move_node = head_b;
 		}
 		head_b = head_b->next;
